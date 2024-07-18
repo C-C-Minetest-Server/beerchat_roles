@@ -1,0 +1,5 @@
+# textdomain: beerchat_roles
+
+##[ init.lua ]##
+Admin=
+Mod=
