@@ -23,12 +23,18 @@ beerchat.register_callback("before_send", function(target, message, data)
 	local player_name = data.name
     for _, def in ipairs(beerchat_roles.registered_roles) do
         if def.func(player_name) then
+            local role_string = def.name
+            if data.name == target then
+                role_string = minetest.colorize("grey", role_string)
+            elseif def.color then
+                role_string = minetest.colorize("grey", def.color)
+            end
+
             data.message = beerchat.format_message(
                 beerchat.main_channel_message_string, {
                     channel_name = data.channel,
                     to_player = target,
-                    from_player =
-                        (def.color and minetest.colorize(def.color, def.name) or def.name) .. " " .. data.name,
+                    from_player = role_string .. " " .. data.name,
                     message = message,
                 })
             return
