@@ -27,7 +27,7 @@ beerchat.register_callback("before_send", function(target, message, data)
             if data.name == target then
                 role_string = minetest.colorize("grey", role_string)
             elseif def.color then
-                role_string = minetest.colorize("grey", def.color)
+                role_string = minetest.colorize(def.color, def.name)
             end
 
             data.message = beerchat.format_message(
