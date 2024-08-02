@@ -20,6 +20,7 @@ end)
 
 beerchat.register_callback("before_send", function(target, message, data)
     if not data then return end
+    if not data.channel then return end
 	local player_name = data.name
     for _, def in ipairs(beerchat_roles.registered_roles) do
         if def.func(player_name) then
