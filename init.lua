@@ -58,7 +58,7 @@ beerchat_roles.register_role({
 
 beerchat_roles.register_role({
     name = S("Mod"),
-    color = "#5353D2",
+    color = "#52C0FF",
     func = check_privs_func({ ban = true }),
     sort = 9800,
 })
